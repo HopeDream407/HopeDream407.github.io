@@ -152,19 +152,18 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-kingdee/2025-05-12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-kingdee/SYS-系统库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>你好</li>
-<li>我好</li>
-<li>大家好</li>
-</ol>
-<h1 id="第一篇章"><a href="#第一篇章" class="headerlink" title="第一篇章"></a>第一篇章</h1><p>洗澡</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_org_org <span class="keyword">where</span> fnumber <span class="operator">=</span> <span class="string">&#x27;100000&#x27;</span>;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 元数据相关表</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_meta_entityinfo <span class="keyword">where</span> fid <span class="operator">=</span> <span class="string">&#x27;bos_entity&#x27;</span>;</span><br><span class="line"><span class="comment">-- 元数据属性</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_meta_mainentityinfo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_meta_entitydesign;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 操作日志</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_log_app_v3;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_log_app_v2;  </span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_log_app;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> TOP <span class="number">11</span>,<span class="number">0</span> A.FId &quot;id&quot;, A.FNumber &quot;number&quot;, <span class="keyword">CASE</span> <span class="keyword">WHEN</span> B.FName <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">THEN</span> A.FName <span class="keyword">WHEN</span> B.FName <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">THEN</span> A.FName <span class="keyword">WHEN</span> B.FName <span class="operator">=</span> <span class="string">&#x27; &#x27;</span> <span class="keyword">THEN</span> A.FName <span class="keyword">ELSE</span> B.FName <span class="keyword">END</span> &quot;name&quot;</span><br><span class="line"><span class="keyword">FROM</span> t_ORG_ORG A </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> t_org_structure D <span class="keyword">ON</span> D.FOrgId<span class="operator">=</span>A.FId <span class="keyword">AND</span> D.fisfreeze <span class="operator">=</span> <span class="literal">false</span></span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> t_org_viewschema C <span class="keyword">ON</span> C.FId<span class="operator">=</span>D.fviewid <span class="keyword">AND</span> C.fnumber <span class="operator">=</span> <span class="string">&#x27;08&#x27;</span></span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> t_ORG_ORG_L B <span class="keyword">ON</span> B.FId<span class="operator">=</span>A.FId <span class="keyword">AND</span> B.FLocaleId<span class="operator">=</span><span class="string">&#x27;zh_CN&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> A.FIsBankroll <span class="operator">=</span> <span class="literal">true</span> <span class="keyword">AND</span> A.FStatus <span class="operator">=</span> <span class="string">&#x27;C&#x27;</span> <span class="keyword">AND</span> A.fenable <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span> <span class="keyword">AND</span> A.FStatus <span class="operator">=</span> <span class="string">&#x27;C&#x27;</span> <span class="keyword">AND</span> A.fenable <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span> </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> A.FNumber;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -176,7 +175,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/23/kingdee/2025-05-12/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/08/25/kingdee/SYS-%E7%B3%BB%E7%BB%9F%E5%BA%93/">展开全文 >></a>
         </p>
       
 
@@ -206,28 +205,24 @@
 
 
   
-    <article id="post-我的第一篇文章“" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-kingdee/HR-人力资源库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E2%80%9C/">我的第一篇文章“</a>
-    </h1>
-  
-
-        
-        <a href="/2025/08/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E2%80%9C/" class="archive-article-date">
-  	<time datetime="2025-08-23T06:54:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-23</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#第一章</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="第二章内容"><a href="#第二章内容" class="headerlink" title="第二章内容"></a>第二章内容</h2>
+        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_hbss_poststate;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_hbss_poststatecls;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 用工关系类型</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_hbss_laborreltype;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_hbss_laborreltypecls;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TOP <span class="number">1000000001</span>,<span class="number">0</span> A.FId &quot;id&quot;</span><br><span class="line"><span class="keyword">FROM</span> t_hrpi_empposorgrel A </span><br><span class="line"><span class="keyword">WHERE</span> A.fcompanyid <span class="operator">=</span> ?</span><br><span class="line"><span class="number">100000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> TOP <span class="number">1000000001</span>,<span class="number">0</span> A.FId &quot;id&quot;</span><br><span class="line"><span class="keyword">FROM</span> t_hrpi_empentrel A </span><br><span class="line"><span class="keyword">WHERE</span> A.flaborreltypeid <span class="operator">=</span> ?</span><br><span class="line"><span class="number">1010</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> A.fdependencytypeid &quot;jq_ala_39&quot;, A.fempentrelid &quot;jq_ala_11&quot;, A.ffiletypeid &quot;jq_ala_33&quot;, A.forgid &quot;jq_ala_36&quot;, A.fbusinessstatus &quot;jq_ala_37&quot;, A.finitstatus &quot;jq_ala_54&quot;, A.fdependencyid &quot;jq_ala_38&quot;, A.fcmpempid &quot;jq_ala_20&quot;, A.fempposrelid &quot;jq_ala_9&quot;, A.fempgroupid &quot;jq_ala_27&quot;, A.fdatastatus &quot;jq_ala_56&quot;, A.femployeeid &quot;jq_ala_1&quot;, A.faffiliateadminorgid &quot;jq_ala_26&quot;, A.fnumber &quot;jq_ala_18&quot;, A.fenddate &quot;jq_ala_35&quot;, A.fstartdate &quot;jq_ala_34&quot;, A.fiscurrentversion &quot;jq_ala_55&quot;, A.fpersonid &quot;jq_ala_5&quot;, A.fname &quot;jq_ala_17&quot;, A.FId &quot;jq_ala_48&quot;</span><br><span class="line"><span class="keyword">FROM</span> t_hrpi_ermanfile A </span><br><span class="line"><span class="comment">-- 业务档案状态-生效中；初始化状态-已完成；是否当前版本-是；数据版本状态-生效中；</span></span><br><span class="line"><span class="keyword">WHERE</span> A.fbusinessstatus <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span> <span class="keyword">AND</span> A.finitstatus <span class="operator">=</span> <span class="string">&#x27;2&#x27;</span> <span class="keyword">AND</span> A.fiscurrentversion <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span> <span class="keyword">AND</span> A.fdatastatus <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line"><span class="keyword">and</span> fempposrelid <span class="keyword">in</span> (<span class="keyword">select</span> fid <span class="keyword">from</span> t_hrpi_empposorgrel </span><br><span class="line">                     <span class="keyword">where</span> fcompanyid <span class="operator">=</span> <span class="number">100000</span> <span class="keyword">and</span> FPOSSTATUS <span class="operator">=</span> <span class="number">1020</span>);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>[{“<em>Type</em>“:”ComboItem”,”Value”:”-3”,”IsvFlag”:”kingdee”,”Caption”:”暂存”},{“<em>Type</em>“:”ComboItem”,”Value”:”-2”,”IsvFlag”:”kingdee”,”Caption”:”已删除”,”Seq”:1},{“<em>Type</em>“:”ComboItem”,”Value”:”-1”,”IsvFlag”:”kingdee”,”Caption”:”已废弃”,”Seq”:2},{“<em>Type</em>“:”ComboItem”,”Value”:”0”,”IsvFlag”:”kingdee”,”Caption”:”待生效”,”Seq”:3},{“<em>Type</em>“:”ComboItem”,”Value”:”1”,”IsvFlag”:”kingdee”,”Caption”:”生效中”,”Seq”:4},{“<em>Type</em>“:”ComboItem”,”Value”:”2”,”IsvFlag”:”kingdee”,”Caption”:”已失效”,”Seq”:5}]</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//            query = QueryServiceHelper.query(&quot;hrpi_empjobrel&quot;, &quot;employee&quot;, filters.toArray(new QFilter[0]));  </span></span><br><span class="line"><span class="comment">//            Set&lt;Long&gt; empJobRelIds = query.stream().map(dyn -&gt; dyn.getLong(&quot;employee&quot;)).collect(Collectors.toSet());  </span></span><br><span class="line"><span class="comment">//  </span></span><br><span class="line"><span class="comment">//            query = QueryServiceHelper.query(&quot;hrpi_percontact&quot;, &quot;person&quot;, filters.toArray(new QFilter[0]));  </span></span><br><span class="line"><span class="comment">//            Set&lt;Long&gt; empContactIds = query.stream().map(dyn -&gt; dyn.getLong(&quot;person&quot;)).collect(Collectors.toSet());  </span></span><br><span class="line"><span class="comment">//  </span></span><br><span class="line"><span class="comment">//            query = QueryServiceHelper.query(&quot;hspm_personinfo&quot;, &quot;person&quot;, filters.toArray(new QFilter[0]));  </span></span><br><span class="line"><span class="comment">//            Set&lt;Long&gt; personInfoIds = query.stream().map(dyn -&gt; dyn.getLong(&quot;person&quot;)).collect(Collectors.toSet());  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">//            filters.clear();</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="comment">//            filters.add(new QFilter(&quot;employee&quot;, QCP.in, empJobRelIds));  </span></span><br><span class="line"><span class="comment">//            filters.add(new QFilter(&quot;person&quot;, QCP.in, empContactIds));  </span></span><br><span class="line"><span class="comment">//            filters.add(new QFilter(&quot;person&quot;, QCP.in, personInfoIds));</span></span><br></pre></td></tr></table></figure>
+
+
+<p>（1）应发职工薪酬（不含劳务派遣费用）、（2）应发职工工资总额、（3）应发在岗职工工资总额、（4）实际发放职工薪酬（不含劳务派遣费用）、（5）实际发放职工工资总额、（6）实际发放在岗职工工资总额、（7）应发职工薪酬总额、（8）实际发放职工薪酬总额、（9）实际发放劳务派遣费用</p>
+
       
 
       
@@ -239,7 +234,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E2%80%9C/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/08/25/kingdee/HR-%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E5%BA%93/">展开全文 >></a>
         </p>
       
 
@@ -269,39 +264,14 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-kingdee/EPM-企业绩效云/CM-合并报表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/23/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2025/08/23/hello-world/" class="archive-article-date">
-  	<time datetime="2025-08-23T06:48:59.882Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-23</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="业务逻辑相关"><a href="#业务逻辑相关" class="headerlink" title="业务逻辑相关"></a>业务逻辑相关</h1><h1 id="常用查询"><a href="#常用查询" class="headerlink" title="常用查询"></a>常用查询</h1><h2 id="取数公式相关"><a href="#取数公式相关" class="headerlink" title="取数公式相关"></a>取数公式相关</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 取数公式服务注册</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_bcm_formularegister;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="基础资料相关"><a href="#基础资料相关" class="headerlink" title="基础资料相关"></a>基础资料相关</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- bcm_fymembertree 财年维度</span></span><br><span class="line"><span class="keyword">select</span> fid,fisleaf,fnumber,fmodelid <span class="keyword">from</span> T_BCM_StructOfFY </span><br><span class="line"><span class="keyword">where</span> fnumber <span class="keyword">like</span> <span class="string">&#x27;FY%&#x27;</span>;</span><br><span class="line"><span class="comment">-- bcm_periodmembertree 期间维度</span></span><br><span class="line"><span class="keyword">select</span>  fid,fnumber,fmodelid <span class="keyword">from</span> T_BCM_StructOfPeriod</span><br><span class="line"><span class="keyword">where</span> fnumber <span class="keyword">like</span> <span class="string">&#x27;M_M%&#x27;</span> <span class="keyword">AND</span> FMODELID <span class="operator">=</span> <span class="number">2154458960210431041</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 组织维度成员树型(bcm_entitymembertree)</span></span><br><span class="line"><span class="keyword">SELECT</span> FNAME,FNUMBER,FMODELID <span class="keyword">FROM</span> t_bcm_structofent</span><br><span class="line"></span><br><span class="line">bcm_fymembertree</span><br></pre></td></tr></table></figure>
 
       
 
@@ -314,7 +284,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/23/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2025/08/25/kingdee/EPM-%E4%BC%81%E4%B8%9A%E7%BB%A9%E6%95%88%E4%BA%91/CM-%E5%90%88%E5%B9%B6%E6%8A%A5%E8%A1%A8/">展开全文 >></a>
         </p>
       
 
@@ -344,6 +314,395 @@
 
 
   
+    <article id="post-kingdee/共享服务云" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>任务管理  t_tk_taskhistory</p>
+<table>
+<thead>
+<tr>
+<th>表单名</th>
+<th>表单标识</th>
+<th>表名</th>
+<th>记录内容</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>任务管理</td>
+<td>task_taskhistory</td>
+<td>t_tk_taskhistory</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>我的任务</td>
+<td>task_task</td>
+<td>T_TK_TASK</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><figcaption><span>统计每天不同单据的共享审核数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.<span class="operator">*</span>,<span class="built_in">count</span>(<span class="number">1</span>) RecordCount</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">  <span class="keyword">select</span> tk.<span class="operator">*</span>,tm.fname <span class="keyword">from</span> (</span><br><span class="line">	  <span class="keyword">SELECT</span> </span><br><span class="line">	    FSscID,</span><br><span class="line">	    DATE_FORMAT(FReceiveTime, <span class="string">&#x27;YYYY-MM-DD&#x27;</span>) ReceiveDate,</span><br><span class="line">	    FBilltypeID</span><br><span class="line">	  <span class="keyword">FROM</span> t_tk_taskhistory </span><br><span class="line">	  <span class="keyword">WHERE</span> </span><br><span class="line">	    FPoolType <span class="operator">=</span> <span class="string">&#x27;2&#x27;</span></span><br><span class="line">	    <span class="keyword">AND</span> FReceiveTime <span class="operator">&gt;=</span> DATE_FORMAT(<span class="string">&#x27;2025-07-09 00:00:00&#x27;</span>, <span class="string">&#x27;YYYY-MM-DD HH24:MI:SS&#x27;</span>)</span><br><span class="line">  ) tk <span class="keyword">join</span> T_tk_taskmainbill tm <span class="keyword">on</span> tk.FBilltypeID <span class="operator">=</span> tm.fid</span><br><span class="line">) a <span class="keyword">GROUP</span> <span class="keyword">BY</span> a.ReceiveDate,a.FSscID,a.FBilltypeID,a.fname</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> a.FSscID,a.ReceiveDate,a.FBilltypeID,a.fname;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> fname <span class="keyword">from</span> t_org_org <span class="keyword">where</span> fid <span class="operator">=</span><span class="number">2193656052229430277</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_sec_user <span class="keyword">where</span> fnumber <span class="operator">=</span> <span class="string">&#x27;10115&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ssc_workcalendarsetting 设置工作日历</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_tk_workcalendar <span class="keyword">where</span> fssccenterid <span class="operator">=</span> <span class="number">2193656052229430277</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_tk_workcalendarentry <span class="keyword">where</span> fid <span class="operator">=</span> <span class="number">2195139083129647104</span> <span class="keyword">and</span> fuserid <span class="operator">=</span> <span class="number">2196072925579521024</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_tk_workcalendartimentry <span class="keyword">where</span> fentryid <span class="operator">=</span> <span class="number">2279013032917040128</span>;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1%E4%BA%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kingdee/供应链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>销售出库单上物料不足无法通过审核，需要查询即时库存的时候保证物料数量多于销售出库单上的数量，如需增加即时库存上的数量，可以新增其他入库单，添加数量</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/%E4%BE%9B%E5%BA%94%E9%93%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kingdee/BOS-平台" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>bos-</p>
+<p>bd_material<br>bd_materialpurchaseinfo 采购信息<br>bd_materialinventoryinfo 库存信息<br>bd_materialmftinfo 生产信息<br>bd_materialsalinfo 销售信息<br>bd_materialcalinfo 核算信息<br>bd_inspect_cfg 质检信息<br>bd_materialplan 计划信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_bas_attachment <span class="keyword">where</span> fbilltype <span class="operator">=</span> <span class="string">&#x27;ynnt_ssc_accountingbill&#x27;</span> <span class="keyword">and</span> finterid <span class="operator">=</span> <span class="number">2281188348196386816</span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>ynnt_proprofession</p>
+<p>ynnt_yeardis</p>
+<p>ynnt_soebs_appediform_ext</p>
+<p>ynnt_soebs_preappedif_ext</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="attr">&quot;canJiaGongZuoShiJian&quot;</span><span class="punctuation">:</span><span class="string">&quot;200109&quot;</span><span class="punctuation">,</span><span class="attr">&quot;chengBaoDanWei&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;chuShengDi&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;chuShengNianYue&quot;</span><span class="punctuation">:</span><span class="string">&quot;198112&quot;</span><span class="punctuation">,</span><span class="attr">&quot;daoLingShiJian&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;daoLingShiJian_Sui&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;gaiGeQianRenZhiNianLingJieXian&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;gongHao&quot;</span><span class="punctuation">:</span><span class="string">&quot;39678&quot;</span><span class="punctuation">,</span><span class="attr">&quot;jiGuan&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;jiSuanNianLingShiJian&quot;</span><span class="punctuation">:</span><span class="string">&quot;20250816&quot;</span><span class="punctuation">,</span><span class="attr">&quot;jiaTingChengYuan&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="attr">&quot;chengWei&quot;</span><span class="punctuation">:</span><span class="string">&quot;父亲&quot;</span><span class="punctuation">,</span><span class="attr">&quot;chuShengRiQi&quot;</span><span class="punctuation">:</span><span class="string">&quot;195612&quot;</span><span class="punctuation">,</span><span class="attr">&quot;gongZuoDanWeiJiZhiWu&quot;</span><span class="punctuation">:</span><span class="string">&quot;云南省政协科教文卫体委副主任&quot;</span><span class="punctuation">,</span><span class="attr">&quot;modifytime&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;xingMing&quot;</span><span class="punctuation">:</span><span class="string">&quot;段鸿&quot;</span><span class="punctuation">,</span><span class="attr">&quot;zhengZhiMianMao&quot;</span><span class="punctuation">:</span><span class="string">&quot;中共党员&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span><span class="punctuation">&#123;</span><span class="attr">&quot;chengWei&quot;</span><span class="punctuation">:</span><span class="string">&quot;儿子&quot;</span><span class="punctuation">,</span><span class="attr">&quot;chuShengRiQi&quot;</span><span class="punctuation">:</span><span class="string">&quot;200909&quot;</span><span class="punctuation">,</span><span class="attr">&quot;gongZuoDanWeiJiZhiWu&quot;</span><span class="punctuation">:</span><span class="string">&quot;云南民族大学附属中学莲华校区中学生无&quot;</span><span class="punctuation">,</span><span class="attr">&quot;modifytime&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;xingMing&quot;</span><span class="punctuation">:</span><span class="string">&quot;殷国羲&quot;</span><span class="punctuation">,</span><span class="attr">&quot;zhengZhiMianMao&quot;</span><span class="punctuation">:</span><span class="string">&quot;群众&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span><span class="punctuation">&#123;</span><span class="attr">&quot;chengWei&quot;</span><span class="punctuation">:</span><span class="string">&quot;母亲&quot;</span><span class="punctuation">,</span><span class="attr">&quot;chuShengRiQi&quot;</span><span class="punctuation">:</span><span class="string">&quot;195712&quot;</span><span class="punctuation">,</span><span class="attr">&quot;gongZuoDanWeiJiZhiWu&quot;</span><span class="punctuation">:</span><span class="string">&quot;红河州烟草公司退休干部&quot;</span><span class="punctuation">,</span><span class="attr">&quot;modifytime&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;xingMing&quot;</span><span class="punctuation">:</span><span class="string">&quot;赵玉芝&quot;</span><span class="punctuation">,</span><span class="attr">&quot;zhengZhiMianMao&quot;</span><span class="punctuation">:</span><span class="string">&quot;群众&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span><span class="punctuation">&#123;</span><span class="attr">&quot;chengWei&quot;</span><span class="punctuation">:</span><span class="string">&quot;丈夫&quot;</span><span class="punctuation">,</span><span class="attr">&quot;chuShengRiQi&quot;</span><span class="punctuation">:</span><span class="string">&quot;197708&quot;</span><span class="punctuation">,</span><span class="attr">&quot;gongZuoDanWeiJiZhiWu&quot;</span><span class="punctuation">:</span><span class="string">&quot;云南省体育局海埂训练基地职工&quot;</span><span class="punctuation">,</span><span class="attr">&quot;modifytime&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;xingMing&quot;</span><span class="punctuation">:</span><span class="string">&quot;殷跃东&quot;</span><span class="punctuation">,</span><span class="attr">&quot;zhengZhiMianMao&quot;</span><span class="punctuation">:</span><span class="string">&quot;群众&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">,</span><span class="attr">&quot;jianKangZhuangKuang&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;jianLi&quot;</span><span class="punctuation">:</span><span class="string">&quot;[&#123;\&quot;1998.09--2001.07  \&quot;:\&quot;财政专业专业普通全日制学习，获无学位\&quot;&#125;]&quot;</span><span class="punctuation">,</span><span class="attr">&quot;jiangChengQingKuang&quot;</span><span class="punctuation">:</span><span class="string">&quot;无&quot;</span><span class="punctuation">,</span><span class="attr">&quot;minZu&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;niMianZhiWu&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;niRenZhiWu&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="attr">&quot;nianDuKaoHeJieGuo&quot;</span><span class="punctuation">:</span><span class="string">&quot;&quot;</span><span class="punctuation">,</span><span class="string">&quot;personId</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Config</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;姓名&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;XingMing_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;XM&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span>  <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span>  <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span>  <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;性别&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;XingBie&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;XB&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span>   <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;出生年月&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ChuShengNianYue_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;CSNY&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span>  <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Center&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;民族&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;MinZu&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;MZ&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;籍贯&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;JiGuan&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;JG&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;出生地&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ChuShengDi&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;CSD&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;入党时间&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;RuDangShiJian_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;RDSJ&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;0&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;0&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;参加工作时间&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;CanJiaGongZuoShiJian_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;CJGZSJ&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;到龄时间&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;DaoLingShiJian_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;DLSJ&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span>  <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Center&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;健康状态&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;JianKangZhuangKuang&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;JKZK&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;专业技术职务&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ZhuanYeJiShuZhiWu&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;ZYJSZW&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;熟悉专业有何特长&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ShuXiZhuanYeYouHeZhuanChang&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;SXZYYHZC&quot;</span>  <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;全日制教育&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;QuanRiZhiJiaoYu_XueLiXueWei_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;QRZJY&quot;</span>  <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;全日制毕业院校及专业&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;QuanRiZhiJiaoYu_BiYeYuanXiaoXi_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;QRZXLXX&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;在职教育&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ZaiZhiZhiJiaoYu_XueLiXueWei_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;ZZJY&quot;</span>  <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;在职教育毕业院校及专业&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ZaiZhiJiaoYu_BiYeYuanXiaoXi_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;ZZXLXX&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span>  <span class="attr">useLineSpace</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;现任职务&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;XianRenZhiWu&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;XRZW&quot;</span>  <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">TopPadding</span>=<span class="string">&quot;1.5&quot;</span> <span class="attr">BottomPadding</span>=<span class="string">&quot;1.5&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;拟任职务&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;NiRenZhiWu&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;NRZW&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">TopPadding</span>=<span class="string">&quot;1.5&quot;</span> <span class="attr">BottomPadding</span>=<span class="string">&quot;1.5&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;拟免职务&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;NiMianZhiWu&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;NMZW&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">TopPadding</span>=<span class="string">&quot;1.5&quot;</span> <span class="attr">BottomPadding</span>=<span class="string">&quot;1.5&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;简历&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;JianLi&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;JL&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">TopPadding</span>=<span class="string">&quot;3&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;奖惩情况&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;JiangChengQingKuang&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;JCQK&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span>   <span class="attr">useLineSpace</span>=<span class="string">&quot;3&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;年度考核结果&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;NianDuKaoHeJieGuo&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;NDKHJG&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span>   <span class="attr">useLineSpace</span>=<span class="string">&quot;3&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;任免理由&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;RenMianLiYou&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;RMLY&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span>  <span class="attr">useLineSpace</span>=<span class="string">&quot;3&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;称谓&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ChengWei&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;FCW&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span>  <span class="attr">LeftPadding</span>=<span class="string">&quot;3&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;家庭成员姓名&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;FXingMing_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;FXM&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span>  <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;3&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;年龄&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;FNianLing&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;NL&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Center&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;政治面貌&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ZhengZhiMianMao&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;FZZMM&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;3&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;工作单位及职务&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;GongZuoDanWeiJiZhiWu&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;FGZDWJZW&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span>  <span class="attr">MinHeight</span>=<span class="string">&quot;-1&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;3&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;呈报单位&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ChengBaoDanWei&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;CBDW&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Right&quot;</span> <span class="attr">TextVertical</span>=<span class="string">&quot;Bottom&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;13&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;3&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;改革前任职年龄界限类型&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;GaiGeQianRenZhiNianLingJieXianLeiXing&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;GGQRZNLJXLX&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Right&quot;</span> <span class="attr">TextVertical</span>=<span class="string">&quot;Bottom&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;13&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">LeftPadding</span>=<span class="string">&quot;5&quot;</span> <span class="attr">RightPadding</span>=<span class="string">&quot;2&quot;</span> <span class="attr">useLineSpace</span>=<span class="string">&quot;3&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;呈报日期&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;TianBiaoShiJian_Output&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;TBSJ&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Right&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;13&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">FldCod</span> <span class="attr">name</span>=<span class="string">&quot;审批机关意见&quot;</span> <span class="attr">attName</span>=<span class="string">&quot;ShengPiJiGuanYiJian&quot;</span> <span class="attr">attDesc</span>=<span class="string">&quot;SPJGYJ&quot;</span> <span class="attr">TextAlign</span>=<span class="string">&quot;Left&quot;</span> <span class="attr">MinHeight</span>=<span class="string">&quot;25.5&quot;</span> <span class="attr">MultiTextAlign</span>=<span class="string">&quot;Left&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Config</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GaiGeQianRenZhiNianLingJieXian</span><br><span class="line">GaiGeQianRenZhiNianLingJieXianLeiXing</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/BOS-%E5%B9%B3%E5%8F%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kingdee/FI-财务云/EDAH-会计事件库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h1><h2 id="业务场景1"><a href="#业务场景1" class="headerlink" title="业务场景1"></a>业务场景1</h2><h2 id="业务场景2"><a href="#业务场景2" class="headerlink" title="业务场景2"></a>业务场景2</h2><h1 id="设计逻辑"><a href="#设计逻辑" class="headerlink" title="设计逻辑"></a>设计逻辑</h1><h2 id="表单1"><a href="#表单1" class="headerlink" title="表单1"></a>表单1</h2><h2 id="表单2"><a href="#表单2" class="headerlink" title="表单2"></a>表单2</h2><h1 id="查询场景"><a href="#查询场景" class="headerlink" title="查询场景"></a>查询场景</h1><h2 id="字段映射相关"><a href="#字段映射相关" class="headerlink" title="字段映射相关"></a>字段映射相关</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 映射结构定义</span></span><br><span class="line"><span class="keyword">select</span> f.<span class="operator">*</span> <span class="keyword">from</span> t_fah_valmap_struc v</span><br><span class="line"><span class="keyword">join</span> t_fah_flex_struc f <span class="keyword">on</span> v.fid <span class="operator">=</span> f.fid;</span><br><span class="line"><span class="comment">-- 映射结构存储</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_fah_flex_struc;</span><br><span class="line"><span class="comment">-- 也才数据映射配置</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_fah_flex_mapval;</span><br><span class="line"><span class="comment">-- 业财数据映射</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_fah_valmap_type;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询场景2"><a href="#查询场景2" class="headerlink" title="查询场景2"></a>查询场景2</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/EDAH-%E4%BC%9A%E8%AE%A1%E4%BA%8B%E4%BB%B6%E5%BA%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kingdee/FI-财务云/AP-应付" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h1><h2 id="业务场景1"><a href="#业务场景1" class="headerlink" title="业务场景1"></a>业务场景1</h2><h2 id="业务场景2"><a href="#业务场景2" class="headerlink" title="业务场景2"></a>业务场景2</h2><h1 id="设计逻辑"><a href="#设计逻辑" class="headerlink" title="设计逻辑"></a>设计逻辑</h1><h2 id="表单1"><a href="#表单1" class="headerlink" title="表单1"></a>表单1</h2><h2 id="表单2"><a href="#表单2" class="headerlink" title="表单2"></a>表单2</h2><h1 id="查询场景"><a href="#查询场景" class="headerlink" title="查询场景"></a>查询场景</h1><h2 id="查询月末关账信息"><a href="#查询月末关账信息" class="headerlink" title="查询月末关账信息"></a>查询月末关账信息</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 月末关账 ap_closeaccount</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_ap_init <span class="keyword">where</span> forgid <span class="operator">=</span> <span class="number">2193656052237572097</span>;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="查询场景2"><a href="#查询场景2" class="headerlink" title="查询场景2"></a>查询场景2</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/AP-%E5%BA%94%E4%BB%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kingdee/FI-财务云/AR-应收" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h1><h2 id="业务场景1"><a href="#业务场景1" class="headerlink" title="业务场景1"></a>业务场景1</h2><h2 id="业务场景2"><a href="#业务场景2" class="headerlink" title="业务场景2"></a>业务场景2</h2><h1 id="设计逻辑"><a href="#设计逻辑" class="headerlink" title="设计逻辑"></a>设计逻辑</h1><h2 id="表单1"><a href="#表单1" class="headerlink" title="表单1"></a>表单1</h2><h2 id="表单2"><a href="#表单2" class="headerlink" title="表单2"></a>表单2</h2><h1 id="查询场景"><a href="#查询场景" class="headerlink" title="查询场景"></a>查询场景</h1><h2 id="月末关账信息查询"><a href="#月末关账信息查询" class="headerlink" title="月末关账信息查询"></a>月末关账信息查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 月末关账 ar_closeaccount</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_ar_init <span class="keyword">where</span> forgid <span class="operator">=</span> <span class="number">2193656052237572097</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="查询场景2"><a href="#查询场景2" class="headerlink" title="查询场景2"></a>查询场景2</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/AR-%E5%BA%94%E6%94%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-kingdee/FI-财务云/FI-财务云" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="开发模块"><a href="#开发模块" class="headerlink" title="开发模块"></a>开发模块</h1><h2 id="自定义服务"><a href="#自定义服务" class="headerlink" title="自定义服务"></a>自定义服务</h2><p>buildvoucher 智能核算生成凭证<br>generatevoucher 生成凭证<br>glcreatevoucher 生成凭证</p>
+<h1 id="业务模块"><a href="#业务模块" class="headerlink" title="业务模块"></a>业务模块</h1><h2 id="应收"><a href="#应收" class="headerlink" title="应收"></a>应收</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 月末关账 ar_closeaccount</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_ar_init <span class="keyword">where</span> forgid <span class="operator">=</span> <span class="number">2193656052237572097</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="应付"><a href="#应付" class="headerlink" title="应付"></a>应付</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 月末关账 ap_closeaccount</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_ap_init <span class="keyword">where</span> forgid <span class="operator">=</span> <span class="number">2193656052237572097</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="固定资产"><a href="#固定资产" class="headerlink" title="固定资产"></a>固定资产</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T_FA_CARD_FIN <span class="keyword">where</span> </span><br><span class="line"><span class="comment">-- frealcardid = 2182746348909063168</span></span><br><span class="line"><span class="comment">-- 2182746337416670208</span></span><br><span class="line">FREALCARDMASTERID <span class="operator">=</span> <span class="number">2182746337416670208</span>;</span><br><span class="line"><span class="comment">-- 两条卡片数据对应两条财务卡片数据，财务卡片FORIGINALDATA 对应 实物卡片的 fisback</span></span><br><span class="line"><span class="comment">-- 备份卡片对应的财务卡片不需要折旧、结束期间为发生期间</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T_FA_CARD_REAL <span class="keyword">where</span> fnumber <span class="operator">=</span> <span class="string">&#x27;101002-F02-2503-0001&#x27;</span>;</span><br><span class="line"><span class="comment">-- 一个卡片有两条数据，有一条备份数据，两条数据fmasterid 相同</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 

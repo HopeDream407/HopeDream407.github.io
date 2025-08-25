@@ -8,15 +8,11 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="你好 我好 大家好  第一篇章洗澡 https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git 1select * from t_org_org where fnumber &#x3D; &#x27;100000&#x27;;">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2025/08/23/kingdee/2025-05-12/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="你好 我好 大家好  第一篇章洗澡 https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git 1select * from t_org_org where fnumber &#x3D; &#x27;100000&#x27;;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-23T09:47:27.139Z">
-<meta property="article:modified_time" content="2025-08-23T09:47:14.738Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,42 +150,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-kingdee/2025-05-12" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-kingdee/FI-财务云/FA-固定资产" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>你好</li>
-<li>我好</li>
-<li>大家好</li>
-</ol>
-<h1 id="第一篇章"><a href="#第一篇章" class="headerlink" title="第一篇章"></a>第一篇章</h1><p>洗澡</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_org_org <span class="keyword">where</span> fnumber <span class="operator">=</span> <span class="string">&#x27;100000&#x27;</span>;</span><br></pre></td></tr></table></figure>
+        <h1 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h1><h2 id="业务场景1"><a href="#业务场景1" class="headerlink" title="业务场景1"></a>业务场景1</h2><h2 id="业务场景2"><a href="#业务场景2" class="headerlink" title="业务场景2"></a>业务场景2</h2><h1 id="设计逻辑"><a href="#设计逻辑" class="headerlink" title="设计逻辑"></a>设计逻辑</h1><h2 id="资产拆分单"><a href="#资产拆分单" class="headerlink" title="资产拆分单"></a>资产拆分单</h2><p>可以将一个卡片拆分成多个卡片，在审核的时候进行拆分，二开的字段可以在<strong>通用映射配置</strong>中配置</p>
+<p>特例：<br>能投资产拆分单要从智资产下推，不能直接创建</p>
+<h2 id="表单2"><a href="#表单2" class="headerlink" title="表单2"></a>表单2</h2><h1 id="查询场景"><a href="#查询场景" class="headerlink" title="查询场景"></a>查询场景</h1><h2 id="财务卡片-事务卡片关联查询"><a href="#财务卡片-事务卡片关联查询" class="headerlink" title="财务卡片-事务卡片关联查询"></a>财务卡片-事务卡片关联查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T_FA_CARD_FIN <span class="keyword">where</span> </span><br><span class="line"><span class="comment">-- frealcardid = 2182746348909063168</span></span><br><span class="line"><span class="comment">-- 2182746337416670208</span></span><br><span class="line">FREALCARDMASTERID <span class="operator">=</span> <span class="number">2182746337416670208</span>;</span><br><span class="line"><span class="comment">-- 两条卡片数据对应两条财务卡片数据，财务卡片FORIGINALDATA 对应 实物卡片的 fisback</span></span><br><span class="line"><span class="comment">-- 备份卡片对应的财务卡片不需要折旧、结束期间为发生期间</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> T_FA_CARD_REAL <span class="keyword">where</span> fnumber <span class="operator">=</span> <span class="string">&#x27;101002-F02-2503-0001&#x27;</span>;</span><br><span class="line"><span class="comment">-- 一个卡片有两条数据，有一条备份数据，两条数据fmasterid 相同</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="查询场景2"><a href="#查询场景2" class="headerlink" title="查询场景2"></a>查询场景2</h2>
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -198,84 +173,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/FA-%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2025/08/23/kingdee/2025-05-12/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2025/08/25/kingdee/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/CAS-%E5%87%BA%E7%BA%B3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2025/08/23/development/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -295,14 +202,198 @@
 
 
 
-  
-  
-  
 
   
+    <article id="post-kingdee/FI-财务云/CAS-出纳" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h1><h2 id="认领处理-新建单据"><a href="#认领处理-新建单据" class="headerlink" title="认领处理-新建单据"></a>认领处理-新建单据</h2><ol>
+<li>收款入账中心-》通知认领：认领通知单</li>
+<li>认领公告-》认领：认领处理</li>
+</ol>
+<p>收款入账中心的数据，只有两个来源，银企推送，离线导入</p>
+<h2 id="表单编辑逻辑"><a href="#表单编辑逻辑" class="headerlink" title="表单编辑逻辑"></a>表单编辑逻辑</h2><h3 id="1、单据体手续费字段为何锁定"><a href="#1、单据体手续费字段为何锁定" class="headerlink" title="1、单据体手续费字段为何锁定"></a>1、单据体手续费字段为何锁定</h3><p>与认领通知单上<strong>是否补充手续费</strong> 相反</p>
+<h3 id="2、核心单据类型为什么在元数据上看不到"><a href="#2、核心单据类型为什么在元数据上看不到" class="headerlink" title="2、核心单据类型为什么在元数据上看不到"></a>2、核心单据类型为什么在元数据上看不到</h3><p><strong>关联核心单据类型配置</strong> - <strong>cas_corebill_setting</strong>可以动态添加下拉的选项</p>
+<h1 id="查询场景"><a href="#查询场景" class="headerlink" title="查询场景"></a>查询场景</h1><h2 id="查询场景1"><a href="#查询场景1" class="headerlink" title="查询场景1"></a>查询场景1</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> pbe.fsourcebillid, pbe.fsourcebillentryid <span class="keyword">from</span> T_CAS_PaymentBill pb</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> T_CAS_PaymentBillEntry pbe <span class="keyword">on</span> pb.fid <span class="operator">=</span> pbe.fid</span><br><span class="line"><span class="keyword">where</span> pb.fbillno <span class="operator">=</span> <span class="string">&#x27;PV-202504-000156&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> abe.<span class="operator">*</span> <span class="keyword">from</span> t_ap_applypaybill ab</span><br><span class="line"></span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_ap_applypaybillentry abe <span class="keyword">on</span> ab.fid <span class="operator">=</span> abe.fid</span><br><span class="line"></span><br><span class="line"><span class="keyword">where</span> ab.fid <span class="operator">=</span> <span class="number">2184273101846513664</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 也才数据映射配置</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_fah_flex_mapval <span class="keyword">where</span> fmaptypeid <span class="operator">=</span> <span class="number">2216943541077242880</span>;</span><br><span class="line"><span class="comment">-- 业财数据映射</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_fah_valmap_type;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_cas_paymentbill <span class="keyword">where</span> fbillno <span class="operator">=</span> <span class="string">&#x27;PV-202504-000165&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_ap_applypaybill <span class="keyword">where</span> fbillno <span class="operator">=</span> <span class="string">&#x27;FKSQ-00000009&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> B.fplainamount <span class="keyword">AS</span> &quot;e_amount&quot;, B.fpayeename,B.fplainamount,B.fk_ynnt_theamountdue,e.fentrymatchamount,e.fentryunmatchamount,B.fk_ynnt_expenses,B.fk_ynnt_hbss_poststate,B.fk_ynnt_hbss_laborreltype </span><br><span class="line"><span class="keyword">FROM</span> T_CAS_AgentPayBill A </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> T_CAS_AgentPayBillEntry B <span class="keyword">ON</span> B.FId <span class="operator">=</span> A.FId </span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> T_CAS_AgentPayBillEntry_e e <span class="keyword">on</span> b.fid <span class="operator">=</span> e.fid <span class="keyword">and</span> b.fentryid <span class="operator">=</span> e.fentryid </span><br><span class="line"><span class="keyword">WHERE</span> B.fk_ynnt_hbss_laborreltype <span class="operator">=</span> <span class="number">1010</span> </span><br><span class="line">  <span class="keyword">AND</span> B.fk_ynnt_hbss_poststate <span class="operator">=</span> <span class="number">1020</span></span><br><span class="line">  <span class="keyword">AND</span> A.fopenorgid <span class="operator">=</span> <span class="number">100000</span> </span><br><span class="line">  <span class="keyword">AND</span> A.fbillstatus <span class="operator">=</span> <span class="string">&#x27;C&#x27;</span> </span><br><span class="line">  <span class="keyword">AND</span> A.fbizdate <span class="operator">&gt;=</span> <span class="string">&#x27;2025-01-01&#x27;</span> </span><br><span class="line">  <span class="keyword">AND</span> A.fbizdate <span class="operator">&lt;=</span> <span class="string">&#x27;2025-05-31&#x27;</span></span><br><span class="line">  <span class="keyword">AND</span> B.fk_ynnt_expenses <span class="operator">!=</span> <span class="number">2211769256813539328</span>;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/25/kingdee/FI-%E8%B4%A2%E5%8A%A1%E4%BA%91/CAS-%E5%87%BA%E7%BA%B3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
+    <article id="post-kingdee/2025-05-12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>你好</li>
+<li>我好</li>
+<li>大家好</li>
+</ol>
+<h1 id="第一篇章"><a href="#第一篇章" class="headerlink" title="第一篇章"></a>第一篇章</h1><p>洗澡</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_org_org <span class="keyword">where</span> fnumber <span class="operator">=</span> <span class="string">&#x27;100000&#x27;</span>;</span><br></pre></td></tr></table></figure>
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/23/kingdee/2025-05-12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-development/hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/08/23/development/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2025/08/23/development/hello-world/" class="archive-article-date">
+  	<time datetime="2025-08-23T06:48:59.882Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/08/23/development/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -325,8 +416,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
